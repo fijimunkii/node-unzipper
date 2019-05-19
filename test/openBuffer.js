@@ -23,3 +23,13 @@ test("get content of a single file entry out of a buffer", function (t) {
         });
     });
 });
+
+test('open buffer containing a crx file', function(t) {
+  var archive = path.join(__dirname, '../testData/compressed-standard-crx/archive.crx');
+  var buffer = fs.readFileSync(archive);
+  return unzip.Open.buffer(buffer)
+    .then(function(d) {
+      t.same(d.files[1].path, 'dir/fileInsideDir.txt');
+      t.end();
+    });
+});

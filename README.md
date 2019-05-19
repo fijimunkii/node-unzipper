@@ -27,6 +27,8 @@ There are no added compiled dependencies - inflation is handled by node.js's bui
 
 Please note:  Methods that use the Central Directory instead of parsing entire file can be found under [`Open`](#open)
 
+Chrome extension files (.crx) are zipfiles with an [extra header](http://www.adambarth.com/experimental/crx/docs/crx.html) at the start of the file.  Unzipper will parse .crx file with the streaming methods (`Parse` and `ParseOne`) and `Open.buffer` method.
+
 ## Installation
 
 ```bash
